@@ -1,9 +1,9 @@
 # MicroHaplotypes
 Phylogenomics through MicroHaplotype Analysis
 
-# 1. Create MicroHaplotype fasta files:
+# 1. Create MicroHaplotype fasta files containing 30 variant sites:
 ```bash
-g=`awk '$3 ~ /sequence2/ {print length($4)}' ../CposaOnlyHaplotypes.complete.txt | head -1`; for f in $(seq 1 50 $g); do awk -v var=$f '$3 ~ /sequence2/ {print ">" $1 "\n" substr($4, var, 50)}' ../CposaOnlyHaplotypes.complete.txt >> CposaSequence2_${f}.fasta; done
+g=`awk '$3 ~ /sequence2/ {print length($4)}' ../CposaOnlyHaplotypes.complete.txt | head -1`; for f in $(seq 1 30 $g); do awk -v var=$f '$3 ~ /sequence2/ {print ">" $1 "\n" substr($4, var, 30)}' ../CposaOnlyHaplotypes.complete.txt >> CposaSequence2_${f}.fasta; done
 ```
 # 2. Build trees for each microhaplotype fasta:
 ```bash
