@@ -7,6 +7,6 @@ g=`awk '$3 ~ /sequence2/ {print length($4)}' ../CposaOnlyHaplotypes.complete.txt
 ```
 # 2. Build trees for each microhaplotype fasta:
 ```bash
-for f in `ls CposaSequence2_*fasta` ;do /Applications/standard-RAxML-master/raxmlHPC-SSE3 -f a -m BINGAMMA -n ${f/\.fasta/}.nwk -s $f -p 12345 -x 12345 -# 100; done
+for f in `ls CposaSequence2_*fasta` ;do /Applications/standard-RAxML-master/raxmlHPC-SSE3 -f a -m BINCAT -V -n ${f/\.fasta/}.nwk -s $f -p 12345 -x 12345 -# 100; done
 ```
 # 3. Plot trees using facet_wrap:
